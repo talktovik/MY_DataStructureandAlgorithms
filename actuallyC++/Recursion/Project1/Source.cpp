@@ -4,7 +4,8 @@ int index;
 
 int main() {
 
-	long int n = 3; // number of disks 
-	towerofhanoi(n,'A','B','C', index);
-	//printf("%d\n", a);
+	long int n = 0; 
+	//n = taylor(2);
+					//towerofhanoi(n,'A','B','C', index);
+	printf("%d\n", n);
 }
