@@ -9,6 +9,8 @@ void treefun(int n);
 int powerfun(int base, int ex);
 //int taylor(int i);  [rewriting again]
 double taylor(int x, int po);
+// Lets see the more optimised version of this taylor rseries
+double moditaylor(int x, int n);
 
 
 

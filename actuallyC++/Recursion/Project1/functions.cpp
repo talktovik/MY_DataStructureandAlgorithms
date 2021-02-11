@@ -100,3 +100,24 @@ double taylor(int x, int po) {
 	}
 	else return 1;
 }
+
+
+//Different version of taylor [modern]
+//something called using the static variables
+
+
+
+//for more clarity we need just say f= factorial, r = result and 
+// p = doing the power.
+double moditaylor(int x, int n) {
+	static double p = 1, f = 1;
+	double r;
+	
+	if (n == 0) return 1;
+	r = moditaylor(x, n - 1);
+	p = p * x;
+	f = f * n;
+	return r + p / f;
+	
+
+}
