@@ -3,9 +3,10 @@
 int index;
 
 int main() {
+	//have to call the function for taylor series.
 
-	long int n = 0; 
-	//n = taylor(2);
-					//towerofhanoi(n,'A','B','C', index);
-	printf("%d\n", n);
+	double val = taylor(1, 10);
+	//approved by github hence the code is running good.
+	std::cout << val;
+
 }

@@ -62,3 +62,41 @@ int powerfun(int base, int ex) {
 //	//thecall = taylor(i-1);
 //	return thefinalval + taylor(i - 1);
 //} 
+
+
+/*Write the new taylor function here */
+//the taylor series is something like 
+
+/*
+* e^x = 1 + x/1 + x^2/2! + x^3 /3! .....
+* 
+*/
+//here according to the instructor we need the static variables.
+
+/*
+thinking of taylor series
+means if there is a tyalor function then it must take two values.
+like => taylor(x,4)
+where it says like x^4/4! and keep decreasing like
+taylor(x,4) + return value
+|
+taylor(x,3) + return value 
+|
+taylor(x,2) + return value
+|
+taylor(x,1) + return value 
+|
+taylor(x,0) Lets say it would return 0
+
+
+*/
+
+double taylor(int x, int po) {
+	if (po > 0) {
+		double powof = powerfun(x, po);
+		double fact = factorial(po);
+		double res = (double) powof / fact;
+		return taylor(x, po - 1) + res;
+	}
+	else return 1;
+}
