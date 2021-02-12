@@ -11,6 +11,7 @@ int powerfun(int base, int ex);
 double taylor(int x, int po);
 // Lets see the more optimised version of this taylor rseries
 double moditaylor(int x, int n);
+double Hornertaylor(int x, int n);
 
 
 

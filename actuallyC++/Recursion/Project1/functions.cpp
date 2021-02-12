@@ -121,3 +121,22 @@ double moditaylor(int x, int n) {
 	
 
 }
+/*
+* Now the taylor series is doing alot of multiplications. and if you find out they are O(n^2) so we can do something better and come
+* up with a solution which take less multiplication and thus executes faster.
+*/
+//Taylor series by Horner's Rule
+//[Here we take the comman part and do computations thereafter.]
+
+double Hornertaylor(int x, int n) {
+// lets say x = 4 and n = 4
+	static double hold = 1;
+
+	if (n == 0) return hold;
+	hold = (1 + x * hold / n );          // Main line of the function 
+		return Hornertaylor(x, n - 1);
+	
+	
+}
+
+//Fibonacci series !! 

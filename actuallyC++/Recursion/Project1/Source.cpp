@@ -7,7 +7,7 @@ int main() {
 
 	//double val = taylor(1, 10);
 	//approved by github hence the code is running good.
-	double val = moditaylor(1,10);
+	double val = Hornertaylor(1, 10); //taylor(1,10);
 	std::cout << val;
 
 	//this modified version is also working same.
