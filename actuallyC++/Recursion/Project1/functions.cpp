@@ -1,5 +1,9 @@
 #include<stdio.h>
 #include<iostream>
+#include <cstdlib>
+#include<string>
+#include<vector>
+extern int f[10];
 
 int justarandomfunctioname(int i) {
 	if (i == 1)
@@ -140,3 +144,180 @@ double Hornertaylor(int x, int n) {
 }
 
 //Fibonacci series !! 
+/*
+series looks like [0 1 1 2 3 5 8 13 21]
+this series starts with 0 and 1 and add the previous 2 terms  to find out the next one.
+Like: 0 +1 = 1 and  1 +1 = 2 and 1 +2 = 3 and so on....
+We have to write the recursive function for this! 
+*/
+
+/*
+				|
+				| 0						if n= 0
+     fib(n) =	| 1						if n =1 
+				|
+				| fib(n-2) + fib(n-1)   if n>1
+*/
+
+
+
+int fibo(int n) {
+	if (n == 0) return 0;
+	if (n == 1) return 1;
+	return fibo(n - 1) + fibo(n - 2);
+}
+
+
+/*More About the Fibonacci series
+ Something Memorisation comes into picture.
+ and there is a golden ratio kind of logic but that might leads to incorrect answer sometimes.
+                                                  [0 1 1 2 3 5 8 13 21 34 ...........]
+So since we see there are lot of functions we are calculating which we already calculated. Like fib(1) is calculateded a lot and so that fib(0)
+So remove this we somehow want to impliment memorisation
+*/                   
+// And this recursive equation shows that time complexity is O(2^n) which is huge.
+// So reason this is having so complexity is because this function is calling same thing multiple times and we call it excessive recursion
+// to remove this we can memorise the function calls and before doing any call we must look over the [array] for example and check the value over there.
+/*
+For example we are calling things alot so we can declare an array of size (static array)fib[n] and put zero initially and whenever we compulte 
+the value of any function call we update it over there as well like if fib(3) turns out to be 2 then what we do is fin[3] =2 and
+in future whenever we require this value then we will look it up over there and make our work easier.
+
+and clerly you observe the function calls made by after including the memorising method then you will find out its O(n) where n is the input provided.
+ so we actually reduced the call from exponential to linear.
+ 
+
+
+ There is slight difference in memorisation and dynamic programming. 
+ Okay the array we are talking about there was(static array )fib[n]. we can make this array as global array because in case if we need fib(n) more than
+ one time then it would be handly. !
+
+*/
+
+//iterative version of fibonacci series which runs on directly O(n) time
+
+
+int iterfibo(int n) {	
+	int firstprev = 0, secondprev = 1,sum=0 , i ; 
+	if (n == 0) return 0;
+	if (n == 1) return 1;
+	for (i = 2; i < n; i++) {
+		sum = firstprev + secondprev;
+		firstprev = secondprev;
+		secondprev = sum;
+	}
+	return sum;
+}
+
+int memorisationof_fibonacci(int n) {
+
+	if (n <= 1)
+	{ f[n] = n; 
+	return n; }
+	//now for n > 1:
+	else {
+		if (f[n - 2] == -1)
+			f[n - 2] = memorisationof_fibonacci(n - 2); // we are checking the value directly , if not there we are calling the recursive call !
+		if (f[n - 1] == -1)
+			f[n - 1] == memorisationof_fibonacci(n - 1); // we are checking the value directly , if not there we are calling the recursive call !
+
+		return f[n - 2] + f[n - 1];
+	}
+	/*for (int i = 0; i < n; i++) {
+		printf("%d\n", f[i]);
+	}*/
+}
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// combinations C(n,r)
+
+
+
+
+
+
+//newly ACTIUALLY MEET
+
+using namespace std;
+void newly() {
+	int t; cin >> t;
+	for (int c = 0; c < t; c++) {
+		string hour; string turn;
+		cin >> hour; cin >> turn;
+		int time_p = 0;
+		if (turn == "PM" && hour.substr(0, 2) != "12") {
+			time_p = time_p + 720;
+		}
+		if (!(turn == "AM" && hour.substr(0, 2) == "12")) {
+			time_p = time_p + stoi(hour.substr(0, 2)) * 60;
+		}
+		time_p = time_p + stoi(hour.substr(3, 2));
+		int n; cin >> n;
+		for (int i = 0; i < n; i++) {
+			cin >> hour; cin >> turn;
+			int time_l = 0;
+			if (turn == "PM" && hour.substr(0, 2) != "12") {
+				time_l = time_l + 720;
+			}
+			if (!(turn == "AM" && hour.substr(0, 2) == "12")) {
+				time_l = time_l + stoi(hour.substr(0, 2)) * 60;
+			}
+			time_l = time_l + stoi(hour.substr(3, 2));
+
+			cin >> hour; cin >> turn;
+			int time_r = 0;
+			if (turn == "PM" && hour.substr(0, 2) != "12") {
+				time_r = time_r + 720;
+			}
+			if (!(turn == "AM" && hour.substr(0, 2) == "12")) {
+				time_r = time_r + stoi(hour.substr(0, 2)) * 60;
+			}
+			time_r = time_r + stoi(hour.substr(3, 2));
+
+			if (time_l <= time_p && time_p <= time_r) {
+				cout << "1";
+			}
+			else {
+				cout << "0";
+			}
+		}
+		cout << "\n";
+	}
+}
+
+
+
+
+//experiment with arrays 
+
+
+void func2() {
+	//vector<int,int > arr; this I tried!!
+
+	vector<vector<int>> arr = {
+		{1,2,3},
+		{1,2,3},
+		{1,2,43}
+
+
+	};
+	cout << arr[2][2];
+
+
+
+}
