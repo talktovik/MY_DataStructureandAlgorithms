@@ -141,9 +141,11 @@
   <ItemGroup>
     <ClCompile Include="Graph.cpp" />
     <ClCompile Include="Programmer%27sOwnWorld.cpp" />
+    <ClCompile Include="Standard_Template_Library.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Graph.h" />
+    <ClInclude Include="Standard_Template_Library.h" />
     <ClInclude Include="TheHeaderFile.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
