@@ -10,7 +10,7 @@ void FilltheAdjMatrix(int *matrix)
 			if (i == j)
 			*((matrix + i * mx) + j) = 0;
 			else
-			*((matrix + i * mx) + j) = i * j;
+			*((matrix + i * mx) + j) = i + j;
 		}
 	}
 	
@@ -55,22 +55,44 @@ void printTheGraph(int matrix[mx][mx])
 
 int main()
 {
-	//First we need a graph actually. 
-	//Either in the form of Adjaceny Matrix or Adjacency List
 
-	//Adjacancy Matix.
+	
 
-	int AdjMatrix[mx][mx];
-	for (int i = 0; i < mx; i++)
-	{
-		for (int j = 0; j < mx; j++)
+		//First we need a graph actually. 
+		//Either in the form of Adjaceny Matrix or Adjacency List
+
+		//Adjacancy Matix
+
+		int AdjMatrix[mx][mx];
+		for (int i = 0; i < mx; i++)
 		{
-			AdjMatrix[i][j] = 0;
+			for (int j = 0; j < mx; j++)
+			{
+				AdjMatrix[i][j] = 0;
+			}
 		}
+		 {
+		FilltheAdjMatrix((int*)AdjMatrix);
+		printthematrix((int*)AdjMatrix);
+		//printTheGraph(AdjMatrix);
+
 	}
-	FilltheAdjMatrix((int *)AdjMatrix);
-	printthematrix((int*)AdjMatrix);
-	printTheGraph(AdjMatrix);
+	//The new way to create the graph and store the adjacency matrix.
+
+	int Vertex = 5;
+	int Edge = 5;
+	Graph G(Vertex, Edge);
+	G.addEdge(0,1);
+	G.addEdge(0,2);
+	G.addEdge(0,3);
+	G.addEdge(1,4);
+	G.addEdge(0,0);
+	G.BFS(0);
+	G.BFS(AdjMatrix);
+
+	std::vector<int> Array = { 1,2,3,43,56,7 };
+	for (int value : Array)
+		std::cout << value; 
 
 	
 	
