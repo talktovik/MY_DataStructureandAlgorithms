@@ -9,7 +9,7 @@ int selectRandom(int x)
   static int count = 0;
   count++;
   if(count == 1)result = x;
-  else 
+  else
   {
     //rand() is predefined function in the header <bits/stdC++>, actually its in the header stdlib.h
     int i = rand()%count;
