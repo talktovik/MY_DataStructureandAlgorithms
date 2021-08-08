@@ -28,3 +28,6 @@ int main()
     std::cout<<"here we get the value  "<< selectRandom(stream[i])<<std::endl;
   return 1;
 }
+//Producing some unexpected results! 
+
+//Discarded ! 
